@@ -1,11 +1,11 @@
 package toolbox
 
 import (
-	"error"
+	"errors"
 	"os"
 )
 
-func fileExists(filename string) bool {
+func FileExists(filename string) bool {
 	ok := true
 
 	file, err := os.OpenFile(filename, os.O_RDONLY, 0644)
