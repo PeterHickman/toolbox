@@ -3,6 +3,8 @@ package toolbox
 import (
 	"errors"
 	"os"
+	"os/exec"
+	"strings"
 )
 
 func FileExists(filename string) bool {
@@ -16,6 +18,15 @@ func FileExists(filename string) bool {
 	}
 
 	return ok
+}
+
+func Command(line string) {
+	args := strings.Fields(line)
+	cmd := exec.Command(args[0], args[1:]...)
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	_ = cmd.Run()
 }
 
 func main() {}
