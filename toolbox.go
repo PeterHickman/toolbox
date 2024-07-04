@@ -29,4 +29,15 @@ func Command(line string) {
 	_ = cmd.Run()
 }
 
+func CommandOutput(line string) (string, error) {
+	args := strings.Fields(line)
+	cmd := exec.Command(args[0], args[1:]...)
+	out, err := cmd.Output()
+	if err != nil {
+		return "", err
+	}
+
+	return string(out), nil
+}
+
 func main() {}

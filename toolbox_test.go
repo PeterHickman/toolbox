@@ -19,3 +19,9 @@ func TestFileExists(t *testing.T) {
 func TestCommand(t *testing.T) {
 	Command("ls -lh /")
 }
+
+func TestCommandOutput(t *testing.T) {
+	o, _ := CommandOutput("ls -lh /")
+
+	println(o)
+}
