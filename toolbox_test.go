@@ -7,6 +7,7 @@ import (
 
 const valid_sha string = "sha256:a826c7e389ec9f379cafdc544d7e9a4395ff7bfb58917bbebee51b3d0b1c996a"
 const valid_md5 string = "md5:78745dd27ccc2f660afba9841f58259b"
+const content string = "This is a message"
 
 func create_file(filename, data string) {
 	d1 := []byte(data)
@@ -36,7 +37,7 @@ func TestCommandOutput(t *testing.T) {
 }
 
 func TestCalculateMD5(t *testing.T) {
-	create_file("tmp.txt", "This is a message")
+	create_file("tmp.txt", content)
 
 	crc := CalculateMD5("tmp.txt")
 	if crc != valid_md5 {
@@ -47,7 +48,7 @@ func TestCalculateMD5(t *testing.T) {
 }
 
 func TestCalculateSHA256(t *testing.T) {
-	create_file("tmp.txt", "This is a message")
+	create_file("tmp.txt", content)
 
 	crc := CalculateSHA256("tmp.txt")
 	if crc != valid_sha {
