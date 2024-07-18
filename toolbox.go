@@ -66,5 +66,3 @@ func CommandOutput(line string) (string, error) {
 
 	return string(out), nil
 }
-
-func main() {}
